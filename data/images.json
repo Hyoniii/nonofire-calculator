@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "main": {
+      "src": "images/hero-main.jpg",
+      "alt": "노노파이어 커튼 메인 이미지",
+      "title": "노노파이어 커튼"
+    }
+  },
+  "gallery": [
+    {
+      "id": "img1",
+      "src": "images/curtain-1.jpg",
+      "alt": "나비주름 2배 커튼",
+      "category": "나비주름",
+      "title": "나비주름 2배"
+    },
+    {
+      "id": "img2",
+      "src": "images/curtain-2.jpg",
+      "alt": "나비주름 2.5배 커튼",
+      "category": "나비주름",
+      "title": "나비주름 2.5배"
+    },
+    {
+      "id": "img3",
+      "src": "images/curtain-3.jpg",
+      "alt": "나비주름 3배 커튼",
+      "category": "나비주름",
+      "title": "나비주름 3배"
+    },
+    {
+      "id": "img4",
+      "src": "images/curtain-4.jpg",
+      "alt": "맞주름 커튼",
+      "category": "맞주름",
+      "title": "맞주름 2배"
+    },
+    {
+      "id": "img5",
+      "src": "images/curtain-5.jpg",
+      "alt": "뒷맞주름 커튼",
+      "category": "뒷맞주름",
+      "title": "뒷맞주름 2.5배"
+    },
+    {
+      "id": "img6",
+      "src": "images/curtain-6.jpg",
+      "alt": "민자주름 커튼",
+      "category": "민자주름",
+      "title": "민자주름 1.5배"
+    }
+  ],
+  "logo": {
+    "src": "images/logo.png",
+    "alt": "노노파이어 로고"
+  },
+  "placeholder": "https://placehold.co/400x300/8B7355/FFFFFF?text=NONOFIRE"
+}

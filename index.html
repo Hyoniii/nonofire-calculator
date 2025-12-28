@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노노파이어 커튼 - 폭수 자동 계산기</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 상단 배너 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-banner">
+                <img src="images/노노파이어 상단 배너.png" alt="노노파이어 커튼 - 국산 최고급 난연전문">
+                <div class="header-text">
+                    <p class="header-brand-en">NONOFIRE CURTAIN</p>
+                    <h1 class="header-brand-kr">노노파이어 커튼</h1>
+                    <p class="header-sub">국산 최고급 난연전문점</p>
+                    <p class="header-slogan">불이 나도, 빛이 나도</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main">
+        <div class="container">
+
+            <!-- 계산기 섹션 -->
+            <section class="calculator-section">
+                <!-- 상단 이미지 배너 -->
+                <div class="calculator-top-image">
+                    <img src="images/노노파이어 계산기 옆 이미지.jpg" alt="노노파이어 커튼">
+                </div>
+                <!-- 계산기 -->
+                <div class="calculator-wrapper">
+                    <!-- 입력 영역 -->
+                    <div class="input-area">
+                        <h3 class="area-title">측정 정보 입력</h3>
+
+                        <!-- 실측 사이즈 입력 -->
+                        <div class="input-group">
+                            <label class="input-label">1. 실측 사이즈 (cm)</label>
+                            <div class="size-inputs">
+                                <div class="input-field">
+                                    <label for="inputWidth">가로</label>
+                                    <input type="number" id="inputWidth" placeholder="예: 300" min="1">
+                                </div>
+                                <span class="separator">×</span>
+                                <div class="input-field">
+                                    <label for="inputHeight">세로(높이)</label>
+                                    <input type="number" id="inputHeight" placeholder="예: 250" min="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 창 종류 선택 -->
+                        <div class="input-group">
+                            <label class="input-label">2. 창문 종류</label>
+                            <div class="toggle-buttons" id="windowType">
+                                <button type="button" class="toggle-btn active" data-value="통창">
+                                    <span class="btn-icon">▣</span>
+                                    <span class="btn-text">통창(벽전체)</span>
+                                    <span class="btn-desc">바닥까지 내려오는 창</span>
+                                </button>
+                                <button type="button" class="toggle-btn" data-value="반창">
+                                    <span class="btn-icon">▤</span>
+                                    <span class="btn-text">반창</span>
+                                    <span class="btn-desc">허리/가슴 높이 창</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 주름 스타일 선택 -->
+                        <div class="input-group">
+                            <label class="input-label">3. 주름 스타일</label>
+                            <div class="style-buttons" id="pleatsStyle">
+                                <button type="button" class="style-btn active" data-value="나비주름">
+                                    <span class="style-name">나비주름</span>
+                                </button>
+                                <button type="button" class="style-btn" data-value="뒷맞주름">
+                                    <span class="style-name">뒷맞주름</span>
+                                </button>
+                                <button type="button" class="style-btn" data-value="민자주름">
+                                    <span class="style-name">민자주름</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 계산 버튼 -->
+                        <button type="button" class="calc-button" id="calcButton">
+                            계산하기
+                        </button>
+                    </div>
+
+                    <!-- 결과 영역 -->
+                    <div class="result-area placeholder" id="resultArea">
+                        <h3 class="area-title">계산 결과</h3>
+
+                        <div class="result-boxes-wrapper">
+                            <!-- 제작 사이즈 -->
+                            <div class="result-box">
+                                <div class="result-label">제작 사이즈</div>
+                                <div class="result-value">
+                                    <span id="resultWidth">330</span>
+                                    <span class="result-separator">×</span>
+                                    <span id="resultHeight">246</span>
+                                    <span class="result-unit">cm</span>
+                                </div>
+                                <div class="result-formula" id="resultFormula">(300×1.1 / 250-4)</div>
+                            </div>
+
+                            <!-- 주문 수량 -->
+                            <div class="result-box highlight">
+                                <div class="result-label">주문 수량</div>
+                                <div class="result-value">
+                                    <span class="result-quantity" id="resultQuantity">5</span>
+                                    <span class="result-unit">개</span>
+                                </div>
+                                <div class="result-formula" id="quantityFormula">(330÷70 = 4.7 → 올림)</div>
+                            </div>
+
+                            <!-- 안내 메시지 -->
+                            <div class="result-notice" id="resultNotice">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 나비주름 섹션 -->
+            <section class="pleats-section">
+                <div class="pleats-header">
+                    <h3 class="pleats-title">나비주름 <span class="pleats-ratio">(2배 이상)</span></h3>
+                    <p class="pleats-desc">"한눈에 고급스러움이 느껴지는 가장 예쁜 표준형을 원한다면"</p>
+                </div>
+                <div class="pleats-gallery">
+                    <div class="pleats-main-image">
+                        <img src="images/노노파이어 나비주름 풀샷 (1번째).jpg" alt="나비주름 풀샷">
+                    </div>
+                    <div class="pleats-detail-images">
+                        <img src="images/노노파이어 나비주름 디테일 (2번째).png" alt="나비주름 디테일 1">
+                        <img src="images/노노파이어 나비주름 디테일 (3번째).png" alt="나비주름 디테일 2">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 뒷맞주름 섹션 -->
+            <section class="pleats-section">
+                <div class="pleats-header">
+                    <h3 class="pleats-title">뒷맞주름 <span class="pleats-ratio">(2배 이상)</span></h3>
+                    <p class="pleats-desc">"주름없이 담백한 고요함을 원한다면"</p>
+                </div>
+                <div class="pleats-gallery">
+                    <div class="pleats-main-image">
+                        <img src="images/노노파이어 뒷맞주름 풀샷 (1번째).jpg" alt="뒷맞주름 풀샷">
+                    </div>
+                    <div class="pleats-detail-images">
+                        <img src="images/노노파이어 뒷맞주름 디테일 (2번째).png" alt="뒷맞주름 디테일 1">
+                        <img src="images/노노파이어 뒷맞주름 디테일 (3번째).jpg" alt="뒷맞주름 디테일 2" class="img-top">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 민자주름 섹션 -->
+            <section class="pleats-section">
+                <div class="pleats-header">
+                    <h3 class="pleats-title">민자주름 <span class="pleats-ratio">(1배 이상)</span></h3>
+                    <p class="pleats-desc">"은은한 볼륨으로 세련된 깊이를 더하고 싶다면"</p>
+                </div>
+                <div class="pleats-gallery">
+                    <div class="pleats-main-image">
+                        <img src="images/노노파이어 민자주름 풀샷 (1번째).png" alt="민자주름 풀샷">
+                    </div>
+                    <div class="pleats-detail-images">
+                        <img src="images/노노파이어 민자주름 디테일 (2번째).png" alt="민자주름 디테일 1">
+                        <img src="images/노노파이어 민자주름 디테일 (3번째).jpg" alt="민자주름 디테일 2" class="img-top">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 하단 배너 -->
+            <section class="bottom-banner">
+                <img src="images/노노파이어 하단 배너.jpg" alt="노노파이어 커튼">
+                <div class="bottom-banner-text">
+                    <h2 class="bottom-brand-kr">노노파이어 커튼</h2>
+                    <p class="bottom-sub">국산 최고급 난연전문점</p>
+                    <p class="bottom-brand-en">NONOFIRE</p>
+                </div>
+            </section>
+
+            <!-- 하단 썸네일 갤러리 -->
+            <section class="thumbnail-gallery">
+                <div class="thumbnail-grid">
+                    <img src="images/노노파이어 나비주름 풀샷 (1번째).jpg" alt="나비주름">
+                    <img src="images/노노파이어 나비주름 디테일 (2번째).png" alt="나비주름 디테일">
+                    <img src="images/노노파이어 나비주름 디테일 (3번째).png" alt="나비주름 디테일">
+                    <img src="images/노노파이어 뒷맞주름 풀샷 (1번째).jpg" alt="뒷맞주름">
+                    <img src="images/노노파이어 뒷맞주름 디테일 (2번째).png" alt="뒷맞주름 디테일">
+                    <img src="images/노노파이어 뒷맞주름 디테일 (3번째).jpg" alt="뒷맞주름 디테일">
+                    <img src="images/노노파이어 민자주름 풀샷 (1번째).png" alt="민자주름">
+                    <img src="images/노노파이어 민자주름 디테일 (2번째).png" alt="민자주름 디테일">
+                    <img src="images/노노파이어 민자주름 디테일 (3번째).jpg" alt="민자주름 디테일">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 이미지 모달 -->
+    <div class="image-modal" id="imageModal">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-brand">NONOFIRE CURTAIN</p>
+                <p class="footer-sub">노노파이어 커튼</p>
+                <p class="footer-desc">국산 최고급 난연전문점</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/calculator.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+</html>
