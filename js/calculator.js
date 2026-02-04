@@ -83,7 +83,7 @@ function calculate() {
     }
 
     // 1. 제작 사이즈 계산
-    const productionWidth = Math.round(inputWidth * 1.1);
+    const productionWidth = inputWidth + 20;
     const productionHeight = state.windowType === '통창'
         ? inputHeight - 4
         : inputHeight + 30;
@@ -118,7 +118,7 @@ function displayResults(data) {
     const heightFormula = state.windowType === '통창'
         ? `${data.inputHeight}-4`
         : `${data.inputHeight}+30`;
-    elements.resultFormula.textContent = `(${data.inputWidth}×1.1 / ${heightFormula})`;
+    elements.resultFormula.textContent = `(${data.inputWidth}+20 / ${heightFormula})`;
 
     // 주문 수량 표시
     elements.resultQuantity.textContent = data.orderQuantity;
